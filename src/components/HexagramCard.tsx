@@ -31,13 +31,13 @@ export const HexagramCard: React.FC<HexagramCardProps> = ({ result, hexagramInfo
       {/* 卦名信息 */}
       <div className="text-center space-y-4">
         <div className="space-y-3">
-          <h2 className="text-5xl md:text-6xl text-slate-900 tracking-tight" style={{ fontFamily: "'Microsoft YaHei', '微软雅黑', 'PingFang SC', sans-serif", fontWeight: 700 }}>
+          <h2 className="text-5xl md:text-6xl text-slate-900 tracking-tight" style={{ fontFamily: '"Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif', fontWeight: 700 }}>
             {hexagramInfo.name}
           </h2>
-          <p className="text-lg text-slate-700 tracking-tight" style={{ fontFamily: "'Microsoft YaHei', '微软雅黑', 'PingFang SC', sans-serif", fontWeight: 300 }}>
+          <p className="text-lg text-slate-700 tracking-tight" style={{ fontFamily: '"Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif', fontWeight: 300 }}>
             {hexagramInfo.alternate}
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: "'Microsoft YaHei', '微软雅黑', 'PingFang SC', sans-serif", fontWeight: 300 }}>
+          <p className="text-lg text-slate-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: '"Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif', fontWeight: 300 }}>
             {hexagramInfo.meaning}
           </p>
         </div>

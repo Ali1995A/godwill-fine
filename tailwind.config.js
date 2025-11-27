@@ -14,7 +14,7 @@ export default {
         }
       },
       fontFamily: {
-        'chinese': ['Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'STHeiti', 'sans-serif']
+        'chinese': ['Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', 'Source Han Sans SC', 'sans-serif']
       }
     },
   },

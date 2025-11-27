@@ -1601,7 +1601,7 @@ video {
 }
 
 .font-chinese {
-  font-family: Microsoft YaHei, 微软雅黑, PingFang SC, Hiragino Sans GB, Heiti SC, STHeiti, sans-serif;
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
 }
 
 .font-mono {
@@ -2177,7 +2177,7 @@ video {
 
 /* 中文字体优化 */
 .font-chinese {
-  font-family: 'Noto Serif SC', 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'STHeiti', sans-serif;
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
 }
 
 /* 响应式设计 */
