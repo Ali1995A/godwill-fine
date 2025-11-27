@@ -6,6 +6,8 @@ import { HexagramCard } from './components/HexagramCard';
 import { CoinTossAnimation } from './components/CoinTossAnimation';
 import { PaymentModal } from './components/PaymentModal';
 import { AIDeepAnalysis } from './components/AIDeepAnalysis';
+import { YaoLineTest } from './components/YaoLineTest';
+import { HexagramExample } from './components/HexagramExample';
 import './index.css';
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [showCoinToss, setShowCoinToss] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showYaoTest, setShowYaoTest] = useState(false);
+  const [showHexagramExample, setShowHexagramExample] = useState(false);
 
   const handleCoinTossDivination = async () => {
     setShowCoinToss(true);
@@ -344,8 +348,40 @@ function App() {
             <div className="card">
               <p className="text-[13px] text-slate-500 leading-relaxed">本占卜工具基于传统周易理论，仅供娱乐参考</p>
               <p className="text-[12px] text-slate-400 mt-2">© 2025 传承古典智慧 ICC</p>
+              
+              {/* 爻线样式测试按钮 */}
+              <div className="mt-4 pt-4 border-t border-slate-200/50 space-y-2">
+                <div className="flex space-x-4 justify-center">
+                  <button
+                    onClick={() => setShowYaoTest(!showYaoTest)}
+                    className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    {showYaoTest ? '隐藏爻线测试' : '爻线样式测试'}
+                  </button>
+                  <button
+                    onClick={() => setShowHexagramExample(!showHexagramExample)}
+                    className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    {showHexagramExample ? '隐藏卦象示例' : '卦象示例'}
+                  </button>
+                </div>
+              </div>
             </div>
           </footer>
+
+          {/* 爻线样式测试 */}
+          {showYaoTest && (
+            <div className="mt-6 animate-fade-in-up">
+              <YaoLineTest />
+            </div>
+          )}
+
+          {/* 卦象示例 */}
+          {showHexagramExample && (
+            <div className="mt-6 animate-fade-in-up">
+              <HexagramExample />
+            </div>
+          )}
         </div>
       </div>
 
