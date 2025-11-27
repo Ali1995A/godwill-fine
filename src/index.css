@@ -2193,56 +2193,108 @@ video {
 }
 /* --- 🚑 紧急样式修复 (Force UI Restore) --- */
 
-/* 1. 修复丢失的白色卡片容器 */
-.card, 
-div[class*="bg-white"][class*="shadow"] { /* 尝试匹配可能原本存在的类组合 */
-  background-color: #ffffff !important;
-  border-radius: 1rem !important; /* rounded-xl */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important; /* shadow-xl */
-  padding: 2rem !important;
+/* 1. 修复丢失的白色卡片容器 - 原设计移植 */
+.card {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(4px) !important;
+  border-radius: 1.5rem !important;
+  padding: 1.5rem !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
   margin: 0 auto;
   display: block;
   width: 100%;
-  max-width: 28rem; /* max-w-md */
-  overflow: hidden; /* 防止内容溢出 */
+  max-width: 48rem !important;
+  overflow: hidden;
 }
 
-/* 2. 修复丢失的蓝色主按钮 */
-.btn-primary,
-button[class*="bg-blue"] {
-  background-color: #2563eb !important; /* bg-blue-600 */
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 2rem !important;
+  }
+}
+
+/* 2. 修复丢失的蓝色主按钮 - 原设计移植 */
+.btn-primary {
+  background: linear-gradient(to right, #2563eb, #4f46e5) !important;
   color: #ffffff !important;
-  padding-top: 0.75rem !important;
-  padding-bottom: 0.75rem !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-  border-radius: 0.5rem !important; /* rounded-lg */
   font-weight: 600 !important;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s;
-  border: none;
-  cursor: pointer;
+  padding: 0.875rem 1.5rem !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  transform: scale(1) !important;
 }
 
-.btn-primary:hover,
-button[class*="bg-blue"]:hover {
-  background-color: #1d4ed8 !important; /* hover:bg-blue-700 */
+.btn-primary:hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  transform: scale(1.05) !important;
 }
 
-/* 3. 修复次要按钮 (快速开始) */
+.btn-primary:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* 3. 修复次要按钮 (快速开始) - 原设计移植 */
 .btn-secondary {
-  background-color: #ffffff !important;
-  border: 1px solid #e5e7eb !important; /* border-gray-200 */
-  color: #1f2937 !important; /* text-gray-800 */
-  padding: 0.75rem 2rem !important;
-  border-radius: 0.5rem !important;
-  width: 100%;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid #cbd5e1 !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  padding: 0.875rem 1.5rem !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  transform: scale(1) !important;
+}
+
+.btn-secondary:hover {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* 4. 修复玻璃态卡片 - 原设计移植 */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 1.5rem !important;
+  padding: 2rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 5. 修复浮动卡片 - 原设计移植 */
+.floating-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: 1.5rem !important;
+  padding: 1.5rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
 }
