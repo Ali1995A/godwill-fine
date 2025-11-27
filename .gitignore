@@ -60,3 +60,21 @@ pids
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Python build artifacts
+godwill.egg-info/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Archived directories
+gwill-web/
+export/

@@ -116,14 +116,14 @@ export function godwill(seeds: number[] = []): DivinationResult {
   
   return {
     code: gwillCode,
-    yaos: yoyo.slice(0, 6), // 确保只有6个爻
+    yaos: yoyo.slice(0, 6).map(binary => binary === 1 ? 7 : 8), // 转换为6,7,8,9格式
     timestamp: new Date().toISOString()
   };
 }
 
 export interface DivinationResult {
   code: string;      // 卦象编码如 "i_111111"
-  yaos: number[];    // 6个爻位值 [0,1,0,1,1,1]
+  yaos: number[];    // 6个爻位值 [6,7,8,9] (6=老阴,7=少阳,8=少阴,9=老阳)
   timestamp: string; // 占卜时间
 }
 

@@ -48,7 +48,7 @@ export const HexagramDisplay: React.FC<HexagramDisplayProps> = ({
             {showLabels && (
               <div className="text-right w-10">
                 <span className="text-sm text-slate-500 font-medium group-hover:text-slate-600 transition-colors">
-                  {yaoNames[5 - index]}
+                  {yaoNames[index]}
                 </span>
               </div>
             )}
@@ -81,7 +81,7 @@ export const HexagramDisplay: React.FC<HexagramDisplayProps> = ({
               )}
             </div>
           </div>
-        )).reverse()} {/* 反转数组以从下往上显示 */}
+        ))}
       </div>
       
       {showLabels && (
