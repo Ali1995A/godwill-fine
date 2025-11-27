@@ -39,10 +39,18 @@ export const HexagramDisplay: React.FC<HexagramDisplayProps> = ({
             
             <div className={`flex items-center relative ${animate ? 'animate-fade-in-up' : ''}`}
                  style={{ animationDelay: `${index * 0.15}s` }}>
-              {/* 爻线显示 */}
-              <div className={`yao-line relative ${
-                yao === 6 || yao === 8 ? 'yin' : 'yang'
-              } ${yao === 6 || yao === 9 ? 'moving' : ''}`}>
+              {/* 爻线显示 - 传统周易卦爻 */}
+              <div className={`relative ${yao === 6 || yao === 9 ? 'yao-moving' : ''}`}>
+                {yao === 6 || yao === 8 ? (
+                  // 阴爻 - 断线
+                  <div className="yao-broken">
+                    <span></span>
+                    <span></span>
+                  </div>
+                ) : (
+                  // 阳爻 - 实线
+                  <div className="yao-solid"></div>
+                )}
               </div>
               
               {/* 爻值显示 */}

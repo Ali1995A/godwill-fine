@@ -177,7 +177,17 @@ export const CoinTossAnimation: React.FC<CoinTossAnimationProps> = ({
                     {['初', '二', '三', '四', '五', '上'][index]}
                   </span>
                   <div className="flex items-center justify-center rounded-lg transition-all duration-300 bg-white border border-gray-100 group-hover:shadow-md group-hover:scale-105">
-                    <div className={`yao-line relative ${result === 6 || result === 8 ? 'yin' : 'yang'} ${result === 6 || result === 9 ? 'moving' : ''}`}>
+                    <div className={`relative ${result === 6 || result === 9 ? 'yao-moving' : ''}`}>
+                      {result === 6 || result === 8 ? (
+                        // 阴爻 - 断线
+                        <div className="yao-broken">
+                          <span></span>
+                          <span></span>
+                        </div>
+                      ) : (
+                        // 阳爻 - 实线
+                        <div className="yao-solid"></div>
+                      )}
                     </div>
                   </div>
                   <span className="text-xs text-gray-500 font-medium min-w-12">
