@@ -2049,36 +2049,52 @@ video {
   }
 }
 
-/* 爻线全局规则 */
+/*
+ * 爻线全局规则 - 审定尺寸规范
+ * ============================================
+ * 注意：以下爻线尺寸和样式已经过项目负责人审定
+ * 未经明确授权，禁止修改以下尺寸和视觉规范
+ * ============================================
+ * 总宽度: 120px (固定)
+ * 高度: 11px (固定)
+ * 圆角: 5px (固定)
+ * 阴爻段宽: 45px (固定)
+ * 阴爻间距: 30px (固定)
+ * 审定人: 项目负责人
+ * 审定日期: 2025-11-27
+ * ============================================
+ */
+
+/* 爻线全局规则 - 审定尺寸 */
 .gua-line-yang,
 .gua-line-yin-segment {
-  width: 120px;
-  height: 11px;
-  border-radius: 5px;
+  width: 120px;        /* 审定宽度 - 禁止修改 */
+  height: 11px;        /* 审定高度 - 禁止修改 */
+  border-radius: 5px;  /* 审定圆角 - 禁止修改 */
   flex-shrink: 0;
   display: block;
 }
 
-/* 阳爻样式 */
+/* 阳爻样式 - 审定规范 */
 .gua-line-yang {
-  background: linear-gradient(135deg, #0f172a, #1f2937);
-  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.28);
+  background: linear-gradient(135deg, #0f172a, #1f2937);  /* 审定渐变 */
+  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.28);           /* 审定阴影 */
 }
 
-/* 阴爻容器 */
+/* 阴爻容器 - 审定规范 */
 .gua-line-yin {
-  width: 120px;
+  width: 120px;        /* 审定宽度 - 禁止修改 */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
 }
 
-/* 阴爻的每一段 */
+/* 阴爻的每一段 - 审定规范 */
 .gua-line-yin-segment {
-  width: 45px;
-  background: linear-gradient(135deg, #0f172a, #1f2937);
-  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.28);
+  width: 45px;         /* 审定段宽 - 禁止修改 */
+  background: linear-gradient(135deg, #0f172a, #1f2937);  /* 审定渐变 */
+  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.28);           /* 审定阴影 */
 }
 
 /* 变爻高亮样式 */
