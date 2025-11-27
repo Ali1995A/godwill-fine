@@ -2191,3 +2191,58 @@ video {
     box-shadow: 0 0 16px rgba(220, 38, 38, 0.6), 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 }
+/* --- 🚑 紧急样式修复 (Force UI Restore) --- */
+
+/* 1. 修复丢失的白色卡片容器 */
+.card, 
+div[class*="bg-white"][class*="shadow"] { /* 尝试匹配可能原本存在的类组合 */
+  background-color: #ffffff !important;
+  border-radius: 1rem !important; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important; /* shadow-xl */
+  padding: 2rem !important;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+/* 2. 修复丢失的蓝色主按钮 */
+.btn-primary,
+button[class*="bg-blue"] {
+  background-color: #2563eb !important; /* bg-blue-600 */
+  color: #ffffff !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  border-radius: 0.5rem !important; /* rounded-lg */
+  font-weight: 600 !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover,
+button[class*="bg-blue"]:hover {
+  background-color: #1d4ed8 !important; /* hover:bg-blue-700 */
+}
+
+/* 3. 修复次要按钮 (快速开始) */
+.btn-secondary {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important; /* border-gray-200 */
+  color: #1f2937 !important; /* text-gray-800 */
+  padding: 0.75rem 2rem !important;
+  border-radius: 0.5rem !important;
+  width: 100%;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
