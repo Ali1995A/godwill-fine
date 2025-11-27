@@ -90,13 +90,13 @@ export const AIDeepAnalysis: React.FC<AIDeepAnalysisProps> = ({
         <div className="p-8 bg-gradient-to-br from-blue-50/80 to-purple-50/80 backdrop-blur-sm rounded-3xl border border-blue-200/50 shadow-sm">
           <div className="flex items-start space-x-4 mb-6">
             <div className="flex-1">
-              <h4 className="text-xl font-semibold text-slate-900 mb-2">AI 深度解析</h4>
-              <p className="text-slate-600 text-[15px]">正在为您生成深度解读...</p>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">深度解析</h4>
+              <p className="text-slate-600 text-[15px]">正在为您深度解读...</p>
             </div>
           </div>
           <div className="pl-16">
             <button onClick={handleButtonClick} disabled={isAnalyzing} className="btn-primary text-base px-8 py-4 w-full sm:w-auto">
-              {isAnalyzing ? 'AI 正在分析中...' : '获取 AI 深度解析'}
+              {isAnalyzing ? '正在分析中...' : '获取深度解析'}
             </button>
             {error && <p className="text-red-600 mt-2">{error}</p>}
           </div>
