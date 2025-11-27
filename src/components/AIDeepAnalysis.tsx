@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { gua_ci } from '../data/hexagrams';
+// @ts-ignore
+import ReactMarkdown from 'react-markdown';
 
 interface AIDeepAnalysisProps {
   hexagramInfo: any;
@@ -104,11 +106,11 @@ export const AIDeepAnalysis: React.FC<AIDeepAnalysisProps> = ({
       ) : (
         <div className="bg-white/80 p-8 rounded-3xl">
           <div className="flex justify-between mb-4">
-            <h4 className="text-lg font-semibold">AI 解析结果</h4>
+            <h4 className="text-lg font-semibold">解析结果</h4>
             <button onClick={() => setAnalysisResult('')} className="text-blue-600 text-sm">重新解析</button>
           </div>
-          <div className="prose max-w-none whitespace-pre-wrap text-slate-700">
-            {analysisResult}
+          <div className="prose max-w-none text-slate-700">
+            <ReactMarkdown>{analysisResult}</ReactMarkdown>
           </div>
         </div>
       )}
