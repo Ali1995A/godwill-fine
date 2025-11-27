@@ -1,3 +1,7 @@
+/**
+ * 铜钱投掷动画组件
+ * 更新时间：2025-11-27 17:11
+ */
 import React, { useState, useEffect } from 'react';
 
 interface CoinTossAnimationProps {

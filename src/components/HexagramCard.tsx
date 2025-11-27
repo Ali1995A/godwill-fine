@@ -1,3 +1,7 @@
+/**
+ * 卦象卡片显示组件
+ * 更新时间：2025-11-27 17:11
+ */
 import React from 'react';
 import { DivinationResult, CoinDivinationResult } from '../lib/divination';
 import { HexagramInfo } from '../data/hexagrams';
