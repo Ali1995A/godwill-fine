@@ -2171,16 +2171,16 @@ video {
 }
 /* --- 🚑 紧急样式修复 (Force UI Restore) --- */
 
-/* 1. 修复丢失的白色卡片容器 */
+/* 1. 卡片容器 */
 .card,
 div[class*="bg-white"][class*="shadow"] {
   background-color: rgba(255, 255, 255, 0.8) !important;
   backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
   border-radius: 1.5rem !important;
   padding: 1.5rem !important;
   border: 1px solid rgba(226, 232, 240, 0.5) !important;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.3s ease !important;
   margin: 0 auto;
   display: block;
   width: 100%;
@@ -2188,7 +2188,7 @@ div[class*="bg-white"][class*="shadow"] {
   overflow: hidden;
 }
 
-/* 2. 修复丢失的蓝色主按钮 */
+/* 2. 主按钮 */
 .btn-primary,
 button[class*="bg-blue"] {
   background-color: #2563eb !important;
@@ -2210,7 +2210,7 @@ button[class*="bg-blue"]:hover {
   background-color: #1d4ed8 !important;
 }
 
-/* 3. 修复次要按钮 */
+/* 3. 次要按钮 */
 .btn-secondary {
   background-color: #ffffff !important;
   border: 1px solid #e5e7eb !important;
@@ -2225,10 +2225,11 @@ button[class*="bg-blue"]:hover {
   cursor: pointer;
 }
 
-/* 4. 修复浮动卡片 */
+/* 4. 浮动卡片 */
 .floating-card {
   background-color: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   border-radius: 1rem !important;
   padding: 1.5rem !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
