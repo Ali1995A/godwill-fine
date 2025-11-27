@@ -1,0 +1,32 @@
+# Ensure proper handling of file names on case-sensitive file systems
+*.tsx text eol=lf
+*.ts text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+
+# Ensure proper line endings for Windows/Linux compatibility
+* text=auto
+
+# Force specific files to be treated as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Ensure proper handling of component files
+src/components/HexagramDisplay.tsx text eol=lf
+src/components/HexagramCard.tsx text eol=lf
+src/components/CoinTossAnimation.tsx text eol=lf
+src/components/AIDeepAnalysis.tsx text eol=lf
+src/components/PaymentModal.tsx text eol=lf
+src/components/YaoLineTest.tsx text eol=lf
+src/components/HexagramExample.tsx text eol=lf
