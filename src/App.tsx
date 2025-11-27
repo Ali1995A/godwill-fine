@@ -343,7 +343,7 @@ function App() {
           <footer className="text-center mt-12">
             <div className="card">
               <p className="text-[13px] text-slate-500 leading-relaxed">本占卜工具基于传统周易理论，仅供娱乐参考</p>
-              <p className="text-[12px] text-slate-400 mt-2">© 2025 传承古典智慧</p>
+              <p className="text-[12px] text-slate-400 mt-2">© 2025 传承古典智慧 ICC</p>
             </div>
           </footer>
         </div>
