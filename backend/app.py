@@ -159,8 +159,15 @@ def ai_analysis():
         data = request.get_json()
         hexagram_data = data.get('hexagram_data')
         
-        # 获取DeepSeek API密钥（从环境变量或配置文件）
-        api_key = os.environ.get('DEEPSEEK_API_KEY', 'your-deepseek-api-key-here')
+        # 获取DeepSeek API密钥（必须从环境变量配置）
+        api_key = os.environ.get('DEEPSEEK_API_KEY')
+        if not api_key:
+            print("❌ 错误：未找到DEEPSEEK_API_KEY环境变量")
+            return jsonify({
+                'success': False,
+                'error': 'API密钥未配置，请检查环境变量DEEPSEEK_API_KEY'
+            }), 500
+        
         print(f"使用API密钥: {api_key[:10]}...")
         
         # 构建完整的卦象信息

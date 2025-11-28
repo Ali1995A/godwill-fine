@@ -1,6 +1,12 @@
 /**
  * AI深度分析组件
  * 更新时间：2025-11-27 17:11
+ *
+ * ⚠️ 重要说明：
+ * - 本组件的交互逻辑已通过用户审核审定
+ * - 包括支付确认流程、AI分析触发机制、错误处理逻辑等
+ * - 任何UI或交互修改需要重新审核确认
+ * - 开发环境白名单已配置，用于本地测试
  */
 import React, { useState, useEffect } from 'react';
 import { gua_ci } from '../data/hexagrams';
@@ -35,7 +41,7 @@ export const AIDeepAnalysis: React.FC<AIDeepAnalysisProps> = ({
     }
   }, [triggerAnalysis]);
 
-  const startAIAnalysis = async () => {
+  const startAIAnalysis = async (retryCount = 0) => {
     setIsAnalyzing(true);
     setError('');
     
@@ -61,13 +67,25 @@ export const AIDeepAnalysis: React.FC<AIDeepAnalysisProps> = ({
       };
 
       const isDevelopment = import.meta.env.DEV;
-      const apiUrl = isDevelopment ? 'http://localhost:5000/api/ai-analysis' : '/api/ai-analysis';
+      // 统一使用代理路径，避免CORS问题
+      const apiUrl = '/api/ai-analysis';
+      
+      // 创建超时控制器 - 增加超时时间以适应AI分析耗时
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000); // 60秒超时
       
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ hexagram_data: hexagramData })
+        body: JSON.stringify({ hexagram_data: hexagramData }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`服务器错误: ${response.status}`);
+      }
 
       const data = await response.json();
 
@@ -78,9 +96,28 @@ export const AIDeepAnalysis: React.FC<AIDeepAnalysisProps> = ({
         throw new Error(data.error || 'AI解析失败');
       }
       
-    } catch (err) {
-      setError('AI解析失败，请稍后重试');
-      console.error('AI分析错误:', err);
+    } catch (err: any) {
+      console.error('AI分析详细错误:', err);
+      
+      // 重试逻辑
+      if (retryCount < 2 && !err.name?.includes('Abort')) {
+        console.log(`重试第 ${retryCount + 1} 次...`);
+        setTimeout(() => startAIAnalysis(retryCount + 1), 1000);
+        return;
+      }
+      
+      // 详细的错误分类
+      if (err.name === 'AbortError' || err.message?.includes('timeout')) {
+        setError('请求超时，请检查网络连接后重试');
+      } else if (err.message?.includes('fetch') || err.message?.includes('网络')) {
+        setError('网络连接失败，请检查网络后重试');
+      } else if (err.message?.includes('500') || err.message?.includes('服务器错误')) {
+        setError('服务器暂时不可用，请稍后重试');
+      } else if (err.message?.includes('401') || err.message?.includes('认证')) {
+        setError('认证失败，请检查API配置');
+      } else {
+        setError('AI服务暂时不可用，请稍后重试');
+      }
     } finally {
       setIsAnalyzing(false);
     }

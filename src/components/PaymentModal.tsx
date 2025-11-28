@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
+/**
+ * 支付确认模态框组件
+ *
+ * ⚠️ 重要说明：
+ * - 本组件的交互逻辑和支付流程已通过用户审核审定
+ * - 包括3天倒计时机制、开发环境白名单、支付确认流程等
+ * - 任何修改需要重新审核确认
+ * - 开发环境自动绕过锁定，允许无限次测试
+ */
 interface PaymentModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -22,6 +31,14 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   }, [isOpen]);
 
   const checkPaymentLock = () => {
+    // 开发环境白名单：本地开发时绕过锁定检查
+    const isDevelopment = import.meta.env.DEV;
+    if (isDevelopment) {
+      console.log('🧪 开发环境：自动通过支付锁定检查');
+      setIsPaymentLocked(false);
+      return;
+    }
+    
     const lockedTime = localStorage.getItem(PAYMENT_LOCK_KEY);
     if (lockedTime) {
       const lockTimestamp = parseInt(lockedTime);
@@ -47,6 +64,17 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
 
   const handlePaymentConfirm = () => {
     if (isPaymentLocked) return;
+    
+    // 开发环境白名单：本地开发时不记录锁定时间
+    const isDevelopment = import.meta.env.DEV;
+    if (isDevelopment) {
+      console.log('🧪 开发环境：跳过支付锁定时间记录');
+      if (onPaymentConfirm) {
+        onPaymentConfirm();
+      }
+      onClose();
+      return;
+    }
     
     // 记录支付确认时间
     localStorage.setItem(PAYMENT_LOCK_KEY, Date.now().toString());
