@@ -1,0 +1,9 @@
+# 保护UI/布局文件备份目录 - 不被推送到远程仓库
+backup_ui_layout/
+
+# 其他临时文件和目录
+*.log
+.DS_Store
+node_modules/
+dist/
+build/

@@ -78,3 +78,6 @@ venv.bak/
 # Archived directories
 gwill-web/
 export/
+
+# Local backup versions - Do not push to remote
+backup_versions/
