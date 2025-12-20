@@ -52,6 +52,15 @@ function buildFallbackAnalysis(hexagramData, reason) {
 }
 
 module.exports = async function handler(req, res) {
+  if (req.method === 'GET') {
+    res.status(200).json({
+      success: true,
+      status: 'ok',
+      message: 'Use POST with hexagram_data to request analysis.'
+    });
+    return;
+  }
+
   if (req.method !== 'POST') {
     res.status(405).json({ success: false, error: 'Method Not Allowed' });
     return;
