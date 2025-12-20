@@ -87,6 +87,11 @@ export const AIDeepAnalysis: React.FC<AIDeepAnalysisProps> = ({
         throw new Error(`服务器错误: ${response.status}`);
       }
 
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error('响应格式错误，未返回JSON');
+      }
+
       const data = await response.json();
 
       if (data.success) {
